@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import { useState } from 'react';
+import { useDispatch,useSelector } from 'react-redux';
+import { increase,decrease } from './Slice';
+const App=()=>{
+  const [count,setCount]=useState(1)
+  const [color,setColor]=useState("red")
+  const track=useSelector((s)=>s.counter)
+  const dispatch=useDispatch()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  <>
+    <h1>{count}here{track}</h1>
+    <button onClick={()=>{setCount(count+1)}}>click here to increase counter</button><br />
+    <input type="text" onChange={(e)=>{setColor(e.target.value)}}  />
+    <p style={{backgroundColor:color,height:100,width:100}}></p>
+    <h2>counter redux toolkit {track}</h2>
+    <button onClick={()=>{dispatch(increase())}}>increase redux toolkit</button>
+    <button onClick={()=>{dispatch(decrease())}}>decrease redux toolkit</button>
+  </>
+  )
 }
-
 export default App;
