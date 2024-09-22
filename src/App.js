@@ -15,6 +15,7 @@ const App=()=>{
     <h2>counter redux toolkit {track}</h2>
     <button onClick={()=>{dispatch(increase())}}>increase redux toolkit</button>
     <button onClick={()=>{dispatch(decrease())}}>decrease redux toolkit</button>
+    esdk new chsk waoj
   </>
   )
 }
